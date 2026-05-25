@@ -62,11 +62,12 @@ class _SplashScreenState extends State<SplashScreen>
                   color: Colors.white.withValues(alpha: 0.2),
                   shape: .circle,
                 ),
-                child: Icon(
-                  Icons.movie_sharp,
-                  size: 56,
-                  color: Colors.white,
-                ),
+                // child: Icon(
+                //   Icons.movie_sharp,
+                //   size: 56,
+                //   color: Colors.white,
+                // ),
+                child: Image.asset('assets/movie_app_logo.png', height: 60, width: 60,),
               ),
               Text(
                 AppStrings.appName,
