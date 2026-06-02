@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moviereview/core/app_colors.dart';
+import 'package:moviereview/presentaion/screens/search_screen.dart';
 import 'package:provider/provider.dart';
 import '../provider/movie_provider.dart';
 import '../widget/movie_card.dart';
@@ -38,14 +39,19 @@ class _HomeScreenState extends State<HomeScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
+            },
+            icon: Icon(Icons.search, color: Colors.white),
+          ),
+        ],
       ),
       body: Consumer<MovieProvider>(
         builder: (context, movieProvider, child) {
           if (movieProvider.isLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-
+            return const Center(child: CircularProgressIndicator());
           }
           return ListView.builder(
             itemCount: movieProvider.trendingMovies.length,
